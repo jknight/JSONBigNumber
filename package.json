@@ -1,5 +1,5 @@
 {
-  "name": "JSON-BigNumber",
+  "name": "JSONBigNumber",
   "version": "0.1.0",
   "module": "dist/JSONBigNumber.min.js",
   "main": "dist/JSONBigNumber.min.js",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:wbuss/JSON-BigNumber.git"
+    "url": "git@github.com:wbuss/JSONBigNumber.git"
   },
   "keywords": [
     "JSON",
