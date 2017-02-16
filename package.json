@@ -1,0 +1,36 @@
+{
+  "name": "JSON-BigNumber",
+  "version": "0.1.0",
+  "module": "dist/JSONBigNumber.min.js",
+  "main": "dist/JSONBigNumber.min.js",
+  "scripts": {
+    "build:dev": "webpack --colors",
+    "build:dist": "webpack -p --colors",
+    "test": "./node_modules/karma/bin/karma start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:wbuss/JSON-BigNumber.git"
+  },
+  "keywords": [
+    "JSON",
+    "bigint",
+    "bignumber",
+    "parse",
+    "json"
+  ],
+  "author": "William Buss",
+  "license": "MIT",
+  "dependencies": {
+    "bignumber.js": "^4.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^3.15.0",
+    "jasmine-core": "^2.5.2",
+    "karma": "^1.4.1",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-firefox-launcher": "^1.0.0",
+    "karma-jasmine": "^1.1.0",
+    "webpack": "^2.2.1"
+  }
+}

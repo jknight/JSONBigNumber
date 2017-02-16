@@ -1,0 +1,37 @@
+{
+    "env": {
+        "browser": true,
+        "amd": true,
+        "node" : true,
+        "commonjs": true,
+        "jasmine": true
+    },
+    "extends": "eslint:recommended",
+    "parserOptions": {
+        "sourceType": "module"
+    },
+    "rules": {
+        "quotes": [
+            2,
+            "double",
+            {
+                "avoidEscape": true
+            }
+        ],
+        "semi": [
+            2,
+            "always"
+        ],
+        "no-mixed-spaces-and-tabs": [2,"smart-tabs"],
+        "no-console": [0],
+        "indent": ["error", 4]
+    },
+    "globals": {
+        "module": true,
+        "inject": true,
+        "process": true,
+        "exports": true,
+        "BigNumber": true,
+        "JSONBigNumber": true
+    }
+}
