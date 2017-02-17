@@ -4,9 +4,12 @@
   "module": "dist/JSONBigNumber.min.js",
   "main": "dist/JSONBigNumber.min.js",
   "scripts": {
-    "build:dev": "webpack --colors",
-    "build:dist": "webpack -p --colors",
-    "test": "./node_modules/karma/bin/karma start"
+    "build": "webpack --colors",
+    "test": "./node_modules/karma/bin/karma start",
+    "lint": "./node_modules/.bin/eslint src/**/* test/**/*",
+    "prebuild": "npm run lint",
+    "pretest": "npm run build",
+    "prepublish": "npm run test"
   },
   "repository": {
     "type": "git",
