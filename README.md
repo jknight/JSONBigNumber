@@ -4,13 +4,15 @@ JSONBigNumber.parse/stringify handling **all** JSON numbers using BigNumber.
 Based on Douglas Crockford [JSON.js](https://github.com/douglascrockford/JSON-js)
 package and [bignumber.js](https://github.com/MikeMcl/bignumber.js) library.
 
+[![Build Status](https://travis-ci.org/wbuss/JSONBigNumber.svg?branch=master)](https://travis-ci.org/wbuss/JSONBigNumber)
+
 ##Usage
 
 All JSON numbers will be passed to BigNumber in the JavaScript object returned from
 JSONBigNumber.parse()
 
 ###example
-```
+```js
 var input = '{"big":1234567890.123456789,"small":789.012}';
 
 var obj1 = JSON.parse(input);
