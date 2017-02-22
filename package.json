@@ -1,6 +1,6 @@
 {
   "name": "json-bignumber",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "module": "dist/JSONBigNumber.min.js",
   "main": "dist/JSONBigNumber.min.js",
   "scripts": {
@@ -17,7 +17,7 @@
   },
   "keywords": [
     "JSON",
-    "bigint",
+    "BigNumber",
     "bignumber",
     "parse",
     "json"

@@ -6,7 +6,8 @@ module.exports = {
     output: {
         filename: "JSONBigNumber.min.js",
         path: path.resolve(__dirname, "dist"),
-        library: "JSONBigNumber"
+        library: "JSONBigNumber",
+        libraryTarget: "assign"
     },
     externals: {
         "BigNumber": "BigNumber"
