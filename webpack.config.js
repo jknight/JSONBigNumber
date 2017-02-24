@@ -7,10 +7,15 @@ module.exports = {
         filename: "JSONBigNumber.min.js",
         path: path.resolve(__dirname, "dist"),
         library: "JSONBigNumber",
-        libraryTarget: "assign"
+        libraryTarget: "umd"
     },
     externals: {
-        "BigNumber": "BigNumber"
+        "bignumber.js" : {
+            commonjs: "bignumber.js",
+            commonjs2: "bignumber.js",
+            amd: "bignumber.js",
+            root: "BigNumber"
+        }
     },
     plugins: [
         new webpack.optimize.UglifyJsPlugin()
