@@ -1,4 +1,4 @@
-#JSONBigNumber
+# JSONBigNumber
 
 JSONBigNumber.parse/stringify handling **all** JSON numbers using BigNumber.
 Based on Douglas Crockford [JSON.js](https://github.com/douglascrockford/JSON-js)
@@ -6,25 +6,25 @@ package and [bignumber.js](https://github.com/MikeMcl/bignumber.js) library.
 
 [![Build Status](https://travis-ci.org/wbuss/JSONBigNumber.svg?branch=master)](https://travis-ci.org/wbuss/JSONBigNumber)
 
-##Usage
+## Usage
 
 All JSON numbers will be passed to BigNumber in the JavaScript object returned from
 JSONBigNumber.parse()
 
-###example
+### example
 ```js
-var input = '{"big":1234567890.123456789,"small":789.012}';
+let input = '{"big":1234567890.123456789,"small":789.012}';
 
-var obj1 = JSON.parse(input);
+let obj1 = JSON.parse(input);
 console.log("JSON", obj1.big.toString());  //'JSON', '1234567890.1234567'
 //The number has lost the last 2 digits
-var out1 = JSON.stringify(obj1);
-console.log("JSON", out2);  //'JSON', '{"big":1234567890.1234567,"small":789.012}'
+let out1 = JSON.stringify(obj1);
+console.log("JSON", out1);  //'JSON', '{"big":1234567890.1234567,"small":789.012}'
 
-var obj2 = JSONBigNumber.parse(input);
+let obj2 = JSONBigNumber.parse(input);
 console.log("JSONBigNumber", obj2.big.toString());  //'JSONBigNumber', '1234567890.123456789'
 //No loss of precision
-var out2 = JSONBigNumber.stringify(obj2);
+let out2 = JSONBigNumber.stringify(obj2);
 console.log("JSONBigNumber", out2);  //'JSONBigNumber', '{"big":1234567890.123456789,"small":789.012}'
 ```
 JSONBigNumber.js: This file creates a JSONBigNumber property in the global object,
