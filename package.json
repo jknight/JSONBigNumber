@@ -9,7 +9,7 @@
     "lint": "./node_modules/.bin/eslint src/**/* test/**/*",
     "prebuild": "npm run lint",
     "pretest": "npm run build",
-    "prepublish": "npm run test"
+    "prepublishOnly": "npm run test"
   },
   "repository": {
     "type": "git",
