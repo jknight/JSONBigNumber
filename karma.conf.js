@@ -62,6 +62,8 @@ module.exports = function (config) {
                     "--headless",
                     // Without a remote debugging port, Google Chrome exits immediately.
                     "--remote-debugging-port=9222",
+                    // Workaround for travis having an incorrectly installed chrome
+                    "--no-sandbox",
                 ],
             },
             FirefoxHeadless: {
