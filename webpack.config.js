@@ -1,7 +1,7 @@
-var webpack = require("webpack"); //to access built-in plugins
 var path = require("path");
 
 module.exports = {
+    mode: "production",
     entry: "./src/JSONBigNumber.js",
     output: {
         filename: "JSONBigNumber.min.js",
@@ -10,14 +10,11 @@ module.exports = {
         libraryTarget: "umd"
     },
     externals: {
-        "bignumber.js" : {
+        "bignumber.js": {
             commonjs: "bignumber.js",
             commonjs2: "bignumber.js",
             amd: "bignumber.js",
             root: "BigNumber"
         }
-    },
-    plugins: [
-        new webpack.optimize.UglifyJsPlugin()
-    ]
+    }
 };

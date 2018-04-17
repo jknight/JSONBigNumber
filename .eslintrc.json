@@ -2,7 +2,7 @@
     "env": {
         "browser": true,
         "amd": true,
-        "node" : true,
+        "node": true,
         "commonjs": true,
         "jasmine": true
     },
@@ -22,9 +22,12 @@
             2,
             "always"
         ],
-        "no-mixed-spaces-and-tabs": [2,"smart-tabs"],
+        "no-mixed-spaces-and-tabs": [2, "smart-tabs"],
         "no-console": [0],
-        "indent": ["error", 4]
+        "indent": ["error", 4, {
+            "ignoreComments": true
+        }],
+        "no-control-regex": "off"
     },
     "globals": {
         "module": true,
