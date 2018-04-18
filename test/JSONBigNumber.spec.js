@@ -1,40 +1,40 @@
-describe("Test JSONBigNumbers", function() {
+describe("Test JSONBigNumbers", function () {
     "use strict";
 
     var bigInt = "1234567890123456789";
     var smallInt = "654";
-    var intObjJSON = '{"big":'+bigInt+',"small":'+smallInt+"}";
+    var intObjJSON = '{"big":' + bigInt + ',"small":' + smallInt + "}";
     var bigDecimal = "1234567890.123456789";
     var smallDecimal = "789.012";
-    var decimalObjJSON = '{"big":'+bigDecimal+',"small":'+smallDecimal+"}";
+    var decimalObjJSON = '{"big":' + bigDecimal + ',"small":' + smallDecimal + "}";
     var positiveExponent = "-1.234567e+44";
     var negativeExponent = "1.234567e-44";
-    var exponentObjJSON = '{"pos":'+positiveExponent+',"neg":'+negativeExponent+"}";
+    var exponentObjJSON = '{"pos":' + positiveExponent + ',"neg":' + negativeExponent + "}";
     var booleanTrue = "true";
     var booleanFalse = "false";
     var nullString = "null";
     var letterString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
     var numberString = "1234567890";
-    var allTheThingsJSON = '{"array":['+intObjJSON+","+decimalObjJSON+","+exponentObjJSON+'],"boolTrue":'+booleanTrue
-        +',"boolFalse":'+booleanFalse+',"nullStr":'+nullString
-        +',"letterStr":"'+letterString+'","numberStr":"'+numberString+'"}';
+    var allTheThingsJSON = '{"array":[' + intObjJSON + "," + decimalObjJSON + "," + exponentObjJSON + '],"boolTrue":' + booleanTrue +
+        ',"boolFalse":' + booleanFalse + ',"nullStr":' + nullString +
+        ',"letterStr":"' + letterString + '","numberStr":"' + numberString + '"}';
 
-    describe("when passed JSON with "+bigInt+" and "+smallInt, function() {
+    describe("when passed JSON with " + bigInt + " and " + smallInt, function () {
 
-        it("JSONBigNumbers can parse to javascript object with BigNumber and back to the same JSON", function() {
+        it("JSONBigNumbers can parse to javascript object with BigNumber and back to the same JSON", function () {
             var obj = JSONBigNumber.parse(intObjJSON);
 
             expect(obj.big.toString()).toEqual(bigInt);
             expect(obj.small.toString()).toEqual(smallInt);
-            expect(obj.big.isBigNumber).toBeTruthy();
-            expect(obj.small.isBigNumber).toBeTruthy();
+            expect(BigNumber.isBigNumber(obj.big)).toBeTruthy();
+            expect(BigNumber.isBigNumber(obj.small)).toBeTruthy();
 
             var json = JSONBigNumber.stringify(obj);
 
             expect(json).toEqual(intObjJSON);
         });
 
-        it("default JSON can't parse to javascript object and back to the same JSON", function() {
+        it("default JSON can't parse to javascript object and back to the same JSON", function () {
             var obj = JSON.parse(intObjJSON);
 
             expect(obj.big.toString()).not.toEqual(bigInt);
@@ -49,22 +49,22 @@ describe("Test JSONBigNumbers", function() {
 
     });
 
-    describe("when passed JSON with "+bigDecimal+" and "+smallDecimal, function() {
+    describe("when passed JSON with " + bigDecimal + " and " + smallDecimal, function () {
 
-        it("JSONBigNumbers can parse to javascript object with BigNumber and back to the same JSON", function() {
+        it("JSONBigNumbers can parse to javascript object with BigNumber and back to the same JSON", function () {
             var obj = JSONBigNumber.parse(decimalObjJSON);
 
             expect(obj.big.toString()).toEqual(bigDecimal);
             expect(obj.small.toString()).toEqual(smallDecimal);
-            expect(obj.big.isBigNumber).toBeTruthy();
-            expect(obj.small.isBigNumber).toBeTruthy();
+            expect(BigNumber.isBigNumber(obj.big)).toBeTruthy();
+            expect(BigNumber.isBigNumber(obj.small)).toBeTruthy();
 
             var json = JSONBigNumber.stringify(obj);
 
             expect(json).toEqual(decimalObjJSON);
         });
 
-        it("default JSON can't parse to javascript object and back to the same JSON", function() {
+        it("default JSON can't parse to javascript object and back to the same JSON", function () {
             var obj = JSON.parse(decimalObjJSON);
 
             expect(obj.big.toString()).not.toEqual(bigDecimal);
@@ -79,15 +79,15 @@ describe("Test JSONBigNumbers", function() {
 
     });
 
-    describe("when passed JSON with "+positiveExponent+" and "+negativeExponent, function() {
+    describe("when passed JSON with " + positiveExponent + " and " + negativeExponent, function () {
 
-        it("JSONBigNumbers can parse to javascript object with BigNumber and back to the same JSON", function() {
+        it("JSONBigNumbers can parse to javascript object with BigNumber and back to the same JSON", function () {
             var obj = JSONBigNumber.parse(exponentObjJSON);
 
             expect(obj.pos.toString()).toEqual(positiveExponent);
             expect(obj.neg.toString()).toEqual(negativeExponent);
-            expect(obj.pos.isBigNumber).toBeTruthy();
-            expect(obj.neg.isBigNumber).toBeTruthy();
+            expect(BigNumber.isBigNumber(obj.pos)).toBeTruthy();
+            expect(BigNumber.isBigNumber(obj.neg)).toBeTruthy();
 
             var json = JSONBigNumber.stringify(obj);
 
@@ -95,9 +95,9 @@ describe("Test JSONBigNumbers", function() {
         });
     });
 
-    describe("when passed JSON with all DataTypes", function() {
+    describe("when passed JSON with all DataTypes", function () {
 
-        it("JSONBigNumbers can parse to javascript object with BigNumber and back to the same JSON", function() {
+        it("JSONBigNumbers can parse to javascript object with BigNumber and back to the same JSON", function () {
             var obj = JSONBigNumber.parse(allTheThingsJSON);
 
             expect(obj.array[0].big.toString()).toEqual(bigInt);
@@ -118,18 +118,18 @@ describe("Test JSONBigNumbers", function() {
         });
     });
 
-    describe("when passed JSON with a badly formed number", function() {
+    describe("when passed JSON with a badly formed number", function () {
         var badlyFormedNumber = "12345t6";
-        var input = '{"badNumber":'+badlyFormedNumber+"}";
+        var input = '{"badNumber":' + badlyFormedNumber + "}";
 
-        it("JSONBigNumber will throw an error", function() {
-            expect(function() {
+        it("JSONBigNumber will throw an error", function () {
+            expect(function () {
                 JSONBigNumber.parse(input);
             }).toThrow();
         });
     });
 
-    it("when JSONBigNumber stringify a NaN BigNumber the JSON string is null", function() {
+    it("when JSONBigNumber stringify a NaN BigNumber the JSON string is null", function () {
         var bigNumberNaN = new BigNumber(NaN);
 
         var json = JSONBigNumber.stringify(bigNumberNaN);
@@ -137,7 +137,7 @@ describe("Test JSONBigNumbers", function() {
         expect(json).toEqual(nullString);
     });
 
-    it("when JSONBigNumber stringify a Infinite BigNumber the JSON string is null", function() {
+    it("when JSONBigNumber stringify a Infinite BigNumber the JSON string is null", function () {
         var bigNumberInfinity = new BigNumber(Infinity);
 
         var json = JSONBigNumber.stringify(bigNumberInfinity);
@@ -145,7 +145,7 @@ describe("Test JSONBigNumbers", function() {
         expect(json).toEqual(nullString);
     });
 
-    it("when JSONBigNumber stringify a -Infinite BigNumber the JSON string is null", function() {
+    it("when JSONBigNumber stringify a -Infinite BigNumber the JSON string is null", function () {
         var bigNumberNegInfinity = new BigNumber(-Infinity);
 
         var json = JSONBigNumber.stringify(bigNumberNegInfinity);

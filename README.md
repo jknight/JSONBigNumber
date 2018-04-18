@@ -33,6 +33,10 @@ setting its value to an object containing a stringify
 method and a parse method. The parse method uses recursive descent to do the
 parsing.
 
+### Note
+For bignumber.js >= v6.0.0 use JSONBigNumber >= v1.0.0
+For bignumber.js < v6.0.0 use JSONBigNumber < v1.0.0
+
 JSON is a light-weight, language independent, data interchange format.
 See http://www.JSON.org/
 
