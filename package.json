@@ -1,6 +1,6 @@
 {
   "name": "json-bignumber",
-  "version": "0.3.0",
+  "version": "1.0.0",
   "module": "src/JSONBigNumber.js",
   "main": "dist/JSONBigNumber.min.js",
   "scripts": {
