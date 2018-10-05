@@ -1,6 +1,6 @@
 {
   "name": "json-bignumber",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "module": "src/JSONBigNumber.js",
   "main": "dist/JSONBigNumber.min.js",
   "scripts": {
@@ -25,10 +25,10 @@
   "author": "William Buss",
   "license": "MIT",
   "dependencies": {
-    "bignumber.js": "^6.0.0"
+    "bignumber.js": "^7.2.1"
   },
   "devDependencies": {
-    "eslint": "^4.19.0",
+    "eslint": "^5.6.1",
     "jasmine-core": "^2.5.2",
     "karma": "^2.0.0",
     "karma-chrome-launcher": "^2.2.0",
