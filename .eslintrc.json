@@ -8,6 +8,7 @@
     },
     "extends": "eslint:recommended",
     "parserOptions": {
+        "ecmaVersion": 6,
         "sourceType": "module"
     },
     "rules": {
@@ -27,7 +28,8 @@
         "indent": ["error", 4, {
             "ignoreComments": true
         }],
-        "no-control-regex": "off"
+        "no-control-regex": "off",
+        "no-misleading-character-class": "off"
     },
     "globals": {
         "module": true,

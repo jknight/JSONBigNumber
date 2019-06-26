@@ -1,6 +1,6 @@
 {
   "name": "json-bignumber",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "module": "src/JSONBigNumber.js",
   "main": "dist/JSONBigNumber.min.js",
   "scripts": {
@@ -28,13 +28,13 @@
     "bignumber.js": "^7.2.1"
   },
   "devDependencies": {
-    "eslint": "^5.6.1",
-    "jasmine-core": "^2.5.2",
-    "karma": "^2.0.0",
+    "eslint": "^6.0.1",
+    "jasmine-core": "^2.99.1",
+    "karma": "^2.0.5",
     "karma-chrome-launcher": "^2.2.0",
     "karma-firefox-launcher": "^1.1.0",
-    "karma-jasmine": "^1.1.0",
-    "webpack": "^4.5.0",
-    "webpack-cli": "^2.0.14"
+    "karma-jasmine": "^1.1.2",
+    "webpack": "^4.35.0",
+    "webpack-cli": "^3.3.5"
   }
 }
