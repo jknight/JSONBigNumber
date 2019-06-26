@@ -28,7 +28,7 @@
     "bignumber.js": "^7.2.1"
   },
   "devDependencies": {
-    "eslint": "^5.16.0",
+    "eslint": "^6.0.1",
     "jasmine-core": "^2.99.1",
     "karma": "^2.0.5",
     "karma-chrome-launcher": "^2.2.0",
