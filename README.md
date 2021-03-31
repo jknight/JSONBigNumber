@@ -1,8 +1,7 @@
 # 0x/BigNumber for JSONBigNumber
 
-This fork of JSONBigNumber explicitly uses 0x/BigNumber instead of bignumber.js.
-0x's BigNumber is a thing wrapper around bignumber.js that prevents large numbers
- from being converted to exponents.
+This fork of JSONBigNumber explicitly uses [0x/BigNumber](https://github.com/0xProject/tools/blob/development/utils/src/configured_bignumber.ts) for JSONBigNumber.
+0x's BigNumber is a thin wrapper around bignumber.js that prevents large numbers from being converted to exponents.
 
 # JSONBigNumber
 
