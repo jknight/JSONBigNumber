@@ -25,6 +25,7 @@
   "author": "William Buss",
   "license": "MIT",
   "dependencies": {
+    "@0x/utils": "^6.2.1",
     "bignumber.js": "^7.2.1"
   },
   "devDependencies": {

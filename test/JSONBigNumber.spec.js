@@ -1,3 +1,4 @@
+
 describe("Test JSONBigNumbers", function () {
     "use strict";
 
@@ -7,19 +8,21 @@ describe("Test JSONBigNumbers", function () {
     var bigDecimal = "1234567890.123456789";
     var smallDecimal = "789.012";
     var decimalObjJSON = '{"big":' + bigDecimal + ',"small":' + smallDecimal + "}";
-    var positiveExponent = "-1.234567e+44";
-    var negativeExponent = "1.234567e-44";
-    var exponentObjJSON = '{"pos":' + positiveExponent + ',"neg":' + negativeExponent + "}";
     var booleanTrue = "true";
     var booleanFalse = "false";
     var nullString = "null";
     var letterString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
     var numberString = "1234567890";
-    var allTheThingsJSON = '{"array":[' + intObjJSON + "," + decimalObjJSON + "," + exponentObjJSON + '],"boolTrue":' + booleanTrue +
+    var allTheThingsJSON = '{"array":[' + intObjJSON + "," + decimalObjJSON  + '],"boolTrue":' + booleanTrue +
         ',"boolFalse":' + booleanFalse + ',"nullStr":' + nullString +
         ',"letterStr":"' + letterString + '","numberStr":"' + numberString + '"}';
 
     describe("when passed JSON with " + bigInt + " and " + smallInt, function () {
+
+        it("0x/BigNumber does not convert to exponents at 20+ digits", function () { 
+            var obj = JSONBigNumber.parse('{"big": 10000000000.00000000001}');
+            expect(obj.big.toString()).toEqual("10000000000.00000000001");
+        });
 
         it("JSONBigNumbers can parse to javascript object with BigNumber and back to the same JSON", function () {
             var obj = JSONBigNumber.parse(intObjJSON);
@@ -79,22 +82,6 @@ describe("Test JSONBigNumbers", function () {
 
     });
 
-    describe("when passed JSON with " + positiveExponent + " and " + negativeExponent, function () {
-
-        it("JSONBigNumbers can parse to javascript object with BigNumber and back to the same JSON", function () {
-            var obj = JSONBigNumber.parse(exponentObjJSON);
-
-            expect(obj.pos.toString()).toEqual(positiveExponent);
-            expect(obj.neg.toString()).toEqual(negativeExponent);
-            expect(BigNumber.isBigNumber(obj.pos)).toBeTruthy();
-            expect(BigNumber.isBigNumber(obj.neg)).toBeTruthy();
-
-            var json = JSONBigNumber.stringify(obj);
-
-            expect(json).toEqual(exponentObjJSON);
-        });
-    });
-
     describe("when passed JSON with all DataTypes", function () {
 
         it("JSONBigNumbers can parse to javascript object with BigNumber and back to the same JSON", function () {
@@ -104,8 +91,6 @@ describe("Test JSONBigNumbers", function () {
             expect(obj.array[0].small.toString()).toEqual(smallInt);
             expect(obj.array[1].big.toString()).toEqual(bigDecimal);
             expect(obj.array[1].small.toString()).toEqual(smallDecimal);
-            expect(obj.array[2].pos.toString()).toEqual(positiveExponent);
-            expect(obj.array[2].neg.toString()).toEqual(negativeExponent);
             expect(obj.boolTrue).toBeTruthy();
             expect(obj.boolFalse).toBeFalsy();
             expect(obj.nullStr).toBeNull();
